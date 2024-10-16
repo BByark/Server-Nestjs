@@ -14,10 +14,10 @@ async function bootstrap() {
     .setDescription('🐤 삐약이 API들')
     .setVersion('v1.0')
     .addServer('http://localhost:3001/', 'Local environment')
-    .addTag('Auth')
-    .addTag('Admin')
-    .addTag('teacher')
-    .addTag('student')
+    .addTag('Auth 인증')
+    .addTag('Admin 관리자')
+    .addTag('teacher 담임교사')
+    .addTag('student 학생')
     .build();
 
   const document = SwaggerModule.createDocument(app, options);

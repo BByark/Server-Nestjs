@@ -3,14 +3,14 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class LoginDto {
   @ApiProperty({
-    description: '사용자 이름',
+    description: '이름(username)',
     example: '',
   })
   @IsString()
   username: string;
 
   @ApiProperty({
-    description: '비밀번호',
+    description: '비밀번호(password)',
     example: '',
   })
   @IsString()
