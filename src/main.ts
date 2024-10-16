@@ -12,7 +12,7 @@ async function bootstrap() {
   const options = new DocumentBuilder()
     .setTitle('BByark API')
     .setDescription('🐤 삐약이 API들')
-    .setVersion('v0.9')
+    .setVersion('v1.0')
     .addServer('http://localhost:3001/', 'Local environment')
     .addTag('Auth')
     .addTag('Admin')
