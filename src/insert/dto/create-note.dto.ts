@@ -6,6 +6,7 @@ export class CreateNoteDto {
   @IsString()
   title: string;
 
+
   @ApiProperty({ description: '날짜 (date)', example: 'date', required: false })
   @IsOptional() 
   @IsDateString() 
