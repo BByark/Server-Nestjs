@@ -14,5 +14,5 @@ export class CreateNoteDto {
   @ApiProperty({ description: '토픽 ID (topic_id)', example: 'topic_id', required: false })
   @IsOptional()
   @IsString()
-  topic_id: string; // 선택적으로 입력 가능한 필드
+  topic_id: string; 
 }
