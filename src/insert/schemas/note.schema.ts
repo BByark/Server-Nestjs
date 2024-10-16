@@ -3,7 +3,7 @@ import { Document } from 'mongoose';
 
 export type NoteDocument = Note & Document;
 
-@Schema({ collection: 'note' })
+@Schema({ collection: 'note', versionKey: false})
 export class Note {
   @Prop({ required: true })
   title: string;

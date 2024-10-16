@@ -6,9 +6,13 @@ export class CreateNoteDto {
   @IsString()
   title: string;
 
-
   @ApiProperty({ description: '날짜 (date)', example: 'date', required: false })
   @IsOptional() 
   @IsDateString() 
   date: string; 
+  
+  @ApiProperty({ description: '토픽 ID (topic_id)', example: 'topic_id', required: false })
+  @IsOptional()
+  @IsString()
+  topic_id: string; // 선택적으로 입력 가능한 필드
 }
