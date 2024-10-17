@@ -8,7 +8,7 @@ import { NoteDto } from './dto/note.dto';
 export class GetinsertController {
   constructor(private readonly getinsertService: GetinsertService) {}
 
-  @Get('insert')
+  @Get('insertlist')
   async getNotes(): Promise<NoteDto[]> { 
     return this.getinsertService.getNotes();
   }
