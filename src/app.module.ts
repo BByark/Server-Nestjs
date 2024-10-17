@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { InsertModule } from './insert/insert.module';
 import { GetinsertModule } from './getinsert/getinsert.module';
 import { NotesModule } from './notes/notes.module';
+import { TinquiryModule } from './tinquiry/tinquiry.module';
 import * as mongoose from 'mongoose';
 
 @Module({
@@ -17,6 +18,7 @@ import * as mongoose from 'mongoose';
     InsertModule,
     GetinsertModule,
     NotesModule,
+    TinquiryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
