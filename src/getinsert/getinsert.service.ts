@@ -9,11 +9,16 @@ export class GetinsertService {
   constructor(@InjectModel('Note') private noteModel: Model<Note>) {}
 
   async getNotes(): Promise<NoteDto[]> {
-    const notes = await this.noteModel.find().exec();
+    const notes = await this.noteModel
+      .find()
+      .sort({ _id: -1 }) 
+      .limit(1) 
+      .exec();
+
     return notes.map(note => ({
-      id: note._id.toString(), 
+      id: note._id.toString(),
       title: note.title,
-      date: note.date.toISOString(), 
+      date: note.date.toISOString(),
       topic_id: note.topic_id,
     }));
   }

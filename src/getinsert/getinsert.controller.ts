@@ -4,11 +4,11 @@ import { ApiTags } from '@nestjs/swagger';
 import { NoteDto } from './dto/note.dto'; 
 
 @ApiTags('student 학생')
-@Controller('student/insert')
+@Controller('student')
 export class GetinsertController {
   constructor(private readonly getinsertService: GetinsertService) {}
 
-  @Get('notes')
+  @Get('insert')
   async getNotes(): Promise<NoteDto[]> { 
     return this.getinsertService.getNotes();
   }
