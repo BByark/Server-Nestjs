@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-@Schema({ collection: 'meeting' })
+@Schema({ collection: 'meetings' })
 export class Meeting extends Document {
   @Prop({ required: true })
   title: string;
@@ -10,10 +10,10 @@ export class Meeting extends Document {
   content: string;
 
   @Prop({ required: true })
-  class: string; 
+  class: string;
 
   @Prop({ required: true })
-  year: string; 
+  date: Date;
 }
 
 export const MeetingSchema = SchemaFactory.createForClass(Meeting);

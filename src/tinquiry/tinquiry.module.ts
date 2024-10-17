@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { TinquiryController } from './tinquiry.controller';
 import { TinquiryService } from './tinquiry.service';
-import { Teacher, TeacherSchema } from './schemas/teacher.schema'; 
+import { TinquiryController } from './tinquiry.controller';
+import { Teacher, TeacherSchema } from './schemas/teacher.schema';
 import { Meeting, MeetingSchema } from './schemas/meeting.schema'; 
 
 @Module({
