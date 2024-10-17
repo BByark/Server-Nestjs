@@ -1,8 +1,25 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { Note } from './schemas/note.schema';
+import { NoteDto } from './dto/note.dto'; 
 
 @Injectable()
 export class GetinsertService {
-  getHello(): string {
-    return 'Hello from GetInsert!';
+  constructor(@InjectModel('Note') private noteModel: Model<Note>) {}
+
+  async getNotes(): Promise<NoteDto[]> {
+    const notes = await this.noteModel
+      .find()
+      .sort({ _id: -1 }) 
+      .limit(1) 
+      .exec();
+
+    return notes.map(note => ({
+      id: note._id.toString(),
+      title: note.title,
+      date: note.date.toISOString(),
+      topic_id: note.topic_id,
+    }));
   }
 }
