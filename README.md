@@ -7,6 +7,8 @@
 
 ### 프로젝트 시작
 > 클론을 받은 후 .env 파일을 만들어 mongodb atlas url을 넣어야합니다.
+
+
     git clone https://github.com/BByark/Server-Nestjs.git
     npm install
     npm run start:dev
