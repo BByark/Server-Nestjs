@@ -12,7 +12,7 @@ async function bootstrap() {
     .setTitle('BByark API')
     .setDescription('🐤 삐약이 API들')
     .setVersion('v1.0')
-    .addServer('http://localhost:3004/', 'Local environment')
+    .addServer('http://localhost:3005/', 'Local environment')
     .addTag('Auth 인증')
     .addTag('Admin 관리자')
     .addTag('teacher 담임교사')
@@ -23,6 +23,6 @@ async function bootstrap() {
   SwaggerModule.setup('/', app, document); 
 
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(3004);
+  await app.listen(3005);
 }
 bootstrap();

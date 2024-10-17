@@ -6,10 +6,18 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { InsertModule } from './insert/insert.module';
 import { GetinsertModule } from './getinsert/getinsert.module';
+import { NotesModule } from './notes/notes.module';
 import * as mongoose from 'mongoose';
 
 @Module({
-  imports: [ConfigModule.forRoot(), MongooseModule.forRoot(process.env.MONGODB_URL), AuthModule, InsertModule, GetinsertModule],
+  imports: [
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGODB_URL),
+    AuthModule,
+    InsertModule,
+    GetinsertModule,
+    NotesModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
