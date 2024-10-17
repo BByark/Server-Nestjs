@@ -10,13 +10,29 @@ export class AuthService {
   async validateUser(username: string, password: string): Promise<User | null> {
     const user = await this.userModel.findOne({ username }).exec();
 
-    if (!user) {
-      return null; 
+    if (!user || user.password !== password) {
+      return null;
     }
 
-    if (user.password === password) {
-      return user; 
+    if (username === 'admin1234') {
+      user.role = 'admin'; 
+    } else if (username.startsWith('teacher')) {
+      user.role = 'teacher'; 
+      const year = username.slice(7, 9); 
+      const classNum = username.slice(9, 11);
+      user.year = year;
+      user.class = classNum;
+    } else if (username.startsWith('student')) {
+      user.role = 'student'; 
+      const year = username.slice(7, 9); 
+      const classNum = username.slice(9, 11); 
+      const leaderFlag = username.slice(11); 
+      user.year = year;
+      user.class = classNum;
+      user.leader = leaderFlag === '1';
+      user.sleader = leaderFlag === '2';
     }
-    return null; 
+
+    return user; 
   }
 }
