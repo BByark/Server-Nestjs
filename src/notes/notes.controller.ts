@@ -3,7 +3,7 @@ import { NotesService } from './notes.service';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { NoteDto } from './dto/note.dto'; 
 
-@ApiTags('Admin 관리자') 
+@ApiTags('관리자') 
 @Controller('/admin/list') 
 export class NotesController {
   constructor(private readonly notesService: NotesService) {} 

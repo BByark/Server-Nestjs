@@ -3,7 +3,7 @@ import { GetinsertService } from './getinsert.service';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { NoteDto } from './dto/note.dto'; 
 
-@ApiTags('student 학생')
+@ApiTags('학생')
 @Controller('student')
 export class GetinsertController {
   constructor(private readonly getinsertService: GetinsertService) {}

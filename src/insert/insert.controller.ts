@@ -3,7 +3,7 @@ import { InsertService } from './insert.service';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
-@ApiTags('Admin 관리자')
+@ApiTags('관리자')
 @Controller('admin/insert')
 export class InsertController {
   constructor(private readonly insertService: InsertService) {}
