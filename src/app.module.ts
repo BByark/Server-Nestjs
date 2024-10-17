@@ -13,7 +13,7 @@ import * as mongoose from 'mongoose';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGODB_URL),
+    MongooseModule.forRoot(process.env.MONGODB_URI),
     AuthModule,
     InsertModule,
     GetinsertModule,
@@ -27,7 +27,7 @@ export class AppModule implements NestModule {
   private readonly isDev: boolean = process.env.NODE_ENV === 'dev' ? true : false;
 
   configure() {
-    console.log('MONGODB_URL:', process.env.MONGODB_URL); 
+    console.log('MONGODB_URL:', process.env.MONGODB_URI); 
     mongoose.set('debug', this.isDev);
   }
 }
