@@ -1,18 +1,57 @@
-import { IsString, IsOptional, IsDateString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { IsString, IsDateString, IsOptional, IsNumber } from 'class-validator';
 
 export class CreateNoteDto {
-  @ApiProperty({ description: '제목 (title)', example: 'string' })
+  @ApiProperty({ required: true })
   @IsString()
   title: string;
 
-  @ApiProperty({ description: '날짜 (date)', example: 'date', required: false })
-  @IsOptional() 
-  @IsDateString() 
-  date: string; 
-  
-  @ApiProperty({ description: '토픽 ID (topic_id)', example: 'topic_id', required: false })
+  @ApiProperty({ required: true })
+  @IsString()
+  topic_id: string;
+
+  @ApiProperty({ required: false })
   @IsOptional()
   @IsString()
-  topic_id: string; 
+  class?: string;
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  @IsDateString()
+  meeting_time?: string;
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  @IsString()
+  facilitator?: string;
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  @IsString()
+  recorder?: string;
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  @IsNumber()
+  class_size?: number;
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  @IsString()
+  absent_students?: string;
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  @IsString()
+  meeting_content?: string;
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  @IsString()
+  meeting_result?: string;
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  @IsString()
+  additional_requests?: string; // 기타 건의 사항
 }
