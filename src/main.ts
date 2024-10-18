@@ -12,6 +12,7 @@ async function bootstrap() {
     .setTitle('BByark API')
     .setDescription('🐤 삐약이 API들')
     .setVersion('v1.0')
+    .addServer('https://port-0-server-nestjs-lylb047299de6c8f.sel5.cloudtype.app/', 'Server')
     .addServer('http://localhost:3005/', 'Local environment')
     .addTag('인증')
     .addTag('관리자')
