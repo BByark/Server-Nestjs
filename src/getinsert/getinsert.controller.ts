@@ -9,7 +9,7 @@ export class GetinsertController {
   constructor(private readonly getinsertService: GetinsertService) {}
 
   @Get('insertlist')
-  @ApiOperation({ summary: '관리자가 적어놓은 내용 (제목, 주제, 날짜)' }) 
+  @ApiOperation({ summary: '관리자가 적어놓은 내용 가져오기' }) 
   async getNotes(): Promise<NoteDto[]> { 
     return this.getinsertService.getNotes();
   }
