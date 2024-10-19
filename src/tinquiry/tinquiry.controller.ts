@@ -11,7 +11,7 @@ export class TinquiryController {
 
   @Get(':id')
   @ApiOperation({ summary: '교사 반에 따른 회의록 조회' })
-  async getTeacher(@Param('id') id: string): Promise<{ teacher: Teacher; meetings: Meeting[] }> {
+  async getTeacher(@Param('id') id: string): Promise<{ teacher: Teacher; meetings: Meeting[] | string }> {
     return this.tinquiryService.getTeacherById(id);
   }
 }

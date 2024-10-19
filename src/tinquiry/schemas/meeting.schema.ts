@@ -7,6 +7,9 @@ export class Meeting extends Document {
   title: string;
 
   @Prop({ required: true })
+  topic_id: string; 
+
+  @Prop({ required: true })
   content: string;
 
   @Prop({ required: true })
