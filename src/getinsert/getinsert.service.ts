@@ -18,8 +18,16 @@ export class GetinsertService {
     return notes.map(note => ({
       id: note._id.toString(),
       title: note.title,
-      date: note.date.toISOString(),
       topic_id: note.topic_id,
+      class: note.class,
+      meeting_time: note.meeting_time,
+      facilitator: note.facilitator,
+      recorder: note.recorder,
+      class_size: note.class_size,
+      absent_students: note.absent_students,
+      meeting_content: note.meeting_content,
+      meeting_result: note.meeting_result,
+      additional_requests: note.additional_requests
     }));
   }
 }

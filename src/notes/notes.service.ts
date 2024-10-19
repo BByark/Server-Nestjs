@@ -13,7 +13,7 @@ export class NotesService {
     return notes.map(note => ({
       id: note._id.toString(), 
       title: note.title,
-      date: note.date.toISOString(),
+      date: note.date ? note.date.toISOString() : '', 
       topic_id: note.topic_id,
     }));
   }
