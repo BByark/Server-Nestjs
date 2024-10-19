@@ -1,18 +1,17 @@
-// src/notes/schemas/note.schema.ts
 import { Schema, Document } from 'mongoose';
 
 export const NoteSchema = new Schema({
     title: { type: String, required: true },
     topic_id: { type: String, required: true },
-    class: { type: String, required: false },  // 선택적 필드
-    meeting_time: { type: String, required: false },  // 선택적 필드
-    facilitator: { type: String, required: false },  // 선택적 필드
-    recorder: { type: String, required: false },  // 선택적 필드
-    class_size: { type: Number, required: false },  // 선택적 필드
-    absent_students: { type: String, required: false },  // 선택적 필드
-    meeting_content: { type: String, required: false },  // 선택적 필드
-    meeting_result: { type: String, required: false },  // 선택적 필드
-    additional_requests: { type: String, required: false },  // 선택적 필드
+    class: { type: String, required: false },  
+    meeting_time: { type: String, required: false },  
+    facilitator: { type: String, required: false },  
+    recorder: { type: String, required: false },  
+    class_size: { type: Number, required: false },  
+    absent_students: { type: String, required: false },  
+    meeting_content: { type: String, required: false },  
+    meeting_result: { type: String, required: false },  
+    additional_requests: { type: String, required: false },  
 });
 
 export interface Note extends Document {

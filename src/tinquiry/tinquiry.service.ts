@@ -14,7 +14,7 @@ export class TinquiryService {
   async getTeacherById(id: string): Promise<{ teacher: Teacher; meetings: Meeting[] }> {
     const teacher = await this.teacherModel.findOne({ username: id }).exec();
     if (!teacher) {
-      throw new NotFoundException('교사를 찾을 수 없습니다.');
+      throw new NotFoundException('등록되지 않은 교사입니다.');
     }
 
     const meetings = await this.meetingModel.find({ class: teacher.class }).exec();
