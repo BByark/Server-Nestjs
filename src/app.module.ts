@@ -8,6 +8,7 @@ import { InsertModule } from './insert/insert.module';
 import { GetinsertModule } from './getinsert/getinsert.module';
 import { NotesModule } from './notes/notes.module';
 import { TinquiryModule } from './tinquiry/tinquiry.module';
+import { PutlistModule } from './putlist/putlist.module';
 import * as mongoose from 'mongoose';
 import * as dotenv from 'dotenv';  
 
@@ -24,6 +25,7 @@ dotenv.config();
     GetinsertModule,
     NotesModule,
     TinquiryModule,
+    PutlistModule,
   ],
   controllers: [AppController],
   providers: [AppService],
