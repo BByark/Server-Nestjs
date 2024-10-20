@@ -1,7 +1,3 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="80" alt="Nest Logo" /></a>
-</p>
-
 ## 🐤 BByark - 삐약
 학급회 회의록 작성 및 제출을 간단하게 해주는 서비스
 
