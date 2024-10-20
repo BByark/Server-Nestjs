@@ -24,7 +24,7 @@ export class TinquiryService {
     }
 
     const filteredMeetings = meetings.filter(meeting => 
-      meeting.title && meeting.topic_id && meeting.date
+      meeting.title || meeting.topic_id || meeting.date 
     );
 
     return { teacher, meetings: filteredMeetings };
