@@ -1,16 +1,41 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import * as bcrypt from 'bcrypt';
 import { User } from './schemas/user.schema';
 
 @Injectable()
 export class AuthService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
+  async hashPassword(plainPassword: string): Promise<string> {
+    const saltRounds = 10; 
+    return await bcrypt.hash(plainPassword, saltRounds);
+  }
+
   async validateUser(username: string, password: string): Promise<User | null> {
     const user = await this.userModel.findOne({ username }).exec();
 
-    if (!user || user.password !== password) {
+    if (!user) {
+      return null;
+    }
+
+    const isPasswordHashed = user.password.length > 20;
+    let isPasswordMatching = false;
+
+    if (isPasswordHashed) {
+      isPasswordMatching = await bcrypt.compare(password, user.password);
+    } else {
+      isPasswordMatching = password === user.password;
+
+      if (isPasswordMatching) {
+        const hashedPassword = await this.hashPassword(password);
+        user.password = hashedPassword;
+        await user.save(); 
+      }
+    }
+
+    if (!isPasswordMatching) {
       return null;
     }
 
@@ -34,5 +59,10 @@ export class AuthService {
     }
 
     return user; 
+  }
+
+  async updateUserPassword(userId: string, plainPassword: string): Promise<void> {
+    const hashedPassword = await this.hashPassword(plainPassword); 
+    await this.userModel.findByIdAndUpdate(userId, { password: hashedPassword });
   }
 }
