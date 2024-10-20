@@ -9,14 +9,17 @@ export class Meeting extends Document {
   @Prop({ required: true })
   topic_id: string; 
 
-  @Prop({ required: true })
-  content: string;
+  @Prop({ required: false }) 
+  content?: string;
 
   @Prop({ required: true })
   class: string;
 
-  @Prop({ required: true })
-  date: Date;
+  @Prop({ required: false }) 
+  date?: Date; 
+
+  @Prop({ default: false }) 
+  confirmed: boolean;
 }
 
 export const MeetingSchema = SchemaFactory.createForClass(Meeting);
